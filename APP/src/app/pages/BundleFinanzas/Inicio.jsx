@@ -6,7 +6,6 @@ import { saldoData } from '@reducers/contabilidad/contabilidadSlice'
 import { useReactToPrint } from 'react-to-print';
 import { PrinterIcon } from "@heroicons/react/24/outline";
 import Moment from 'react-moment';
-let ep  = JSON.parse(localStorage.getItem('@empresaConta23'))
 
 const ComponentToPrint = React.forwardRef((props,ref)=>{    
   const fechaHoy = new Date();
@@ -47,9 +46,9 @@ const Inicio = () => {
   const dispatch = useDispatch()          
   const { tDebe, tHaber, tDeudor, tAcreedor,tGastos, tIngresos, tPerdidas, tGanancias,tActivos, tPasivos, tPatrimonio } = useSelector((state) => state.contabilidad)    
   const [value1, onChange1] = useState(new Date());    
-  const [value2, onChange2] = useState(new Date());
+  const [value2, onChange2] = useState(new Date()); 
 
-  
+  let ep  = JSON.parse(localStorage.getItem('@empresaConta23'))
   useEffect(() => {    
       let iok ={
         desde: value1,
